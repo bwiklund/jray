@@ -94,7 +94,7 @@ function doSomethingTotallyStupid(){
     $scope.cov = cov
 
     for k,v of linesHitFade
-      linesHitFade[k] *= 0.9
+      linesHitFade[k] *= 0.95
 
   update()
 
@@ -104,8 +104,11 @@ function doSomethingTotallyStupid(){
   $scope.lineStyle = (i) ->
     # if linesHit[i+1]
       # background: '#d79c4f'
-    if !linesHitFade[i] then return {}
-    background: "hsla(360,50%,50%,#{linesHitFade[i+1]/5})"
+    if linesHitFade[i+1]
+      intensity = Math.sqrt linesHitFade[i+1]
+      background: "hsla(205,50%,#{intensity*15}%,1.0)"
+    else
+      background: '#000'
 
 
 
