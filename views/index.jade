@@ -1,3 +1,5 @@
+doctype html
+
 html
   head
     title fmjs
@@ -10,21 +12,12 @@ html
     script(src="build/all.min.js")
 
   body(ng-app="jray",ng-controller="MainCtrl")
-    h1 jray
+    //- h1 jray
 
-    //- h2 statements
-    //- div(ng-repeat="(k,v) in cov.s") {{k}} {{v}}
-
-    //- h2 branches
-    //- div(ng-repeat="(k,v) in cov.b") {{k}} {{v}}
-
-    //- h2 functions
-    //- div(ng-repeat="(k,v) in cov.f") {{k}} {{v}}
-
-    //- h2 code
     .thumbnails
-      .thumbnail(ng-repeat="inspector in inspectors")
+      .thumbnail(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
         .script-name {{inspector.scriptName}}
         pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}
 
-    //- pre(ng-repeat="line in inspectors[ 0 ].fnLines track by $index",ng-style="lineStyle($index)") {{line}}
+    .inspector
+      pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}

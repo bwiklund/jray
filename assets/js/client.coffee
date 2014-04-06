@@ -11,8 +11,6 @@ angular.module 'jray', []
 
       instrumenter = new Instrumenter
       instrumentedFnStr = instrumenter.instrumentSync @fnStr, @scriptName
-
-      console.log instrumentedFnStr
       
       # evaluate the script in the global scope
       eval.call window, instrumentedFnStr
@@ -60,5 +58,7 @@ angular.module 'jray', []
     else
       background: '#000'
 
+  $scope.focusOnScript = (i) ->
+    $scope.currentScriptIndex = i
 
-
+  $scope.currentScriptIndex = 0

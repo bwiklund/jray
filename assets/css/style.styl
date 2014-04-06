@@ -20,21 +20,33 @@ pre
 h1
   margin 10px
 
+.inspector
+  border-left #035 2px solid
+  border-top #035 8px solid
+  padding 10px
+  
+
 .thumbnails
   margin 10px 0
-  background black
 
   .script-name
     margin-bottom 5px
     font-size 12px
+
   pre
     font-size 3px
     white-space pre-wrap
 
   .thumbnail
+
+    &.current
+      border-color white
+
+    cursor pointer
     border-left #035 2px solid
+    border-top #035 8px solid
     padding 5px
-    margin 10px
+    margin 10px 10px 10px 0
     vertical-align top
     width 100px
     display inline-block
