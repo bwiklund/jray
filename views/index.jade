@@ -23,5 +23,8 @@ html
 
     //- h2 code
     .thumbnails
-      pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle($index)") {{line}}
-    pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle($index)") {{line}}
+      .thumbnail(ng-repeat="inspector in inspectors")
+        .script-name {{inspector.scriptName}}
+        pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}
+
+    //- pre(ng-repeat="line in inspectors[ 0 ].fnLines track by $index",ng-style="lineStyle($index)") {{line}}
