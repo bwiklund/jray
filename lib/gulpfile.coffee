@@ -23,7 +23,7 @@ gulp.task 'js', ->
     .pipe coffee() #.on('error',gutil.log)
     .pipe concat 'all.min.js'
     .pipe ngmin()
-    .pipe uglify()
+    # .pipe uglify()
     .pipe gulp.dest paths.dest
 
 gulp.task 'css', ->
