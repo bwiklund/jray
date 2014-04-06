@@ -12,6 +12,7 @@ paths =
   scripts: ['./assets/js/app.coffee','./assets/js/**/*.coffee']
   sheets:  ['./assets/css/**/*.styl']
   views:   ['./assets/views/**/*.jade']
+  vendor:  ['./vendor/**/*.js']
 
 gulp.task 'jade', ->
   gulp
@@ -25,7 +26,14 @@ gulp.task 'js', ->
     .pipe coffee() #.on('error',gutil.log)
     .pipe concat 'all.min.js'
     .pipe ngmin()
-    # .pipe uglify()
+    .pipe uglify()
+    .pipe gulp.dest paths.dest
+
+gulp.task 'vendor', ->
+  gulp
+    .src  paths.vendor
+    .pipe concat 'vendor.min.js'
+    .pipe uglify()
     .pipe gulp.dest paths.dest
 
 gulp.task 'css', ->
@@ -40,9 +48,9 @@ gulp.task 'watch', ->
   gulp.watch paths.views, ['jade']
 
 gulp.task 'connect', -> connect.server
-  root: ['build','static']
+  root: ['build']
   port: 8765
 
 gulp.task 'dev', ['default','connect','watch']
 
-gulp.task 'default', ['js','css','jade']
+gulp.task 'default', ['js','vendor','css','jade']
