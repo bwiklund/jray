@@ -10,7 +10,7 @@ to test it out:
 
 ```
 npm install
-gulp start
+gulp dev
 ```
 
 # TODO:
