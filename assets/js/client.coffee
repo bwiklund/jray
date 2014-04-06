@@ -14,7 +14,7 @@ angular.module 'jray', []
       
       # evaluate the script in the global scope
       eval.call window, instrumentedFnStr
-      @cov = __cov_1
+      @cov = window[ instrumenter.currentState.trackerVar ]
 
       # defined in this closure until i think of a more clever way
       # to handle scope in the instrumented script.
