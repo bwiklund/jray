@@ -2,7 +2,7 @@ angular.module 'jray'
 
 
 .value "testFn", """
-var instrumentedFn = function () {
+function instrumentedFn() {
   var foo = 0;
   if (Math.random() > 0.5) {
     foo += 1;

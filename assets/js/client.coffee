@@ -6,20 +6,21 @@ angular.module 'jray', []
   class Inspector
     constructor: (@fnStr) ->
       @fnLines = @fnStr.split /\n/
-
-      instrumenter = new Instrumenter
-      changed = instrumenter.instrumentSync fnStr, 'filename.js'
-      eval changed
-      @cov = __cov_1
-
       @linesHit = []
       @linesHitFade = []
+
+      instrumenter = new Instrumenter
+      instrumentedFnStr = instrumenter.instrumentSync fnStr, 'filename.js'
+      
+      # evaluate the script in the global scope
+      eval.call window, instrumentedFnStr
+      @cov = __cov_1
 
       # defined in this closure until i think of a more clever way
       # to handle scope in the instrumented script.
       @update = ->
         @linesHit = []
-        instrumentedFn()
+        window.instrumentedFn()
         for k,v of @cov.s
           if v > 0
             line = @cov.statementMap[k].start.line
