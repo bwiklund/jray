@@ -102,11 +102,12 @@ function doSomethingTotallyStupid(){
   $scope.fnLines = fnStr.split /\n/
 
   $scope.lineStyle = (i) ->
+    i += 1 # coverage report is 1 indexed
     # if linesHit[i+1]
       # background: '#d79c4f'
-    if linesHitFade[i+1]?
-      intensity = Math.sqrt linesHitFade[i+1]
-      background: "hsla(205,50%,#{intensity*15}%,1.0)"
+    if linesHitFade[i]?
+      intensity = Math.sqrt linesHitFade[i]
+      background: "hsla(205,50%,#{~~(intensity*15)}%,1.0)"
     else
       background: '#000'
 
