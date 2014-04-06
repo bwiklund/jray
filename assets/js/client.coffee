@@ -104,7 +104,7 @@ function doSomethingTotallyStupid(){
   $scope.lineStyle = (i) ->
     # if linesHit[i+1]
       # background: '#d79c4f'
-    if linesHitFade[i+1]
+    if linesHitFade[i+1]?
       intensity = Math.sqrt linesHitFade[i+1]
       background: "hsla(205,50%,#{intensity*15}%,1.0)"
     else
