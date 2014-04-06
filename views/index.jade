@@ -12,13 +12,16 @@ html
     script(src="build/all.min.js")
 
   body(ng-app="jray",ng-controller="MainCtrl")
-    //- h1 jray
-    a(ng-click="doSomething()") Run some js!
+    header
+      h1 jray
+      h2 a realtime javascript library to watch you code as it runs
+
+    //- a(ng-click="doSomething()") Do some pointless work!
 
     .thumbnails
       .thumbnail(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
         .script-name {{inspector.scriptName}}
-        pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}
+        pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}&nbsp;
 
     .inspector
-      pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}
+      pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}&nbsp;

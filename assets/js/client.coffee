@@ -37,13 +37,14 @@ angular.module 'jray', []
 .controller 'MainCtrl', ($scope,$timeout,Inspector,testFn1,testFn2,testFn3,testFn4) ->
 
   $scope.inspectors = [
-    new Inspector "foo.js", testFn1
-    new Inspector "bar.js", testFn2
     new Inspector "primes1.js", testFn3
     new Inspector "primes2.js", testFn4
+    new Inspector "foo.js", testFn1
+    new Inspector "bar.js", testFn2
   ]
 
   update = ->
+    window.foobar()
     inspector.update() for inspector in $scope.inspectors
     $timeout update, 50
 
