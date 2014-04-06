@@ -13,6 +13,7 @@ html
 
   body(ng-app="jray",ng-controller="MainCtrl")
     //- h1 jray
+    a(ng-click="doSomething()") Run some js!
 
     .thumbnails
       .thumbnail(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")

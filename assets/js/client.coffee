@@ -30,7 +30,7 @@ angular.module 'jray', []
           @cov.s[k] = 0 # reset counter
 
         for k,v of @linesHitFade
-          @linesHitFade[k] *= 0.95
+          @linesHitFade[k] *= 0.5
 
 
 
@@ -44,9 +44,8 @@ angular.module 'jray', []
   ]
 
   update = ->
-    window.instrumentedFn()
     inspector.update() for inspector in $scope.inspectors
-    $timeout update
+    $timeout update, 50
 
   update()
 
@@ -54,11 +53,17 @@ angular.module 'jray', []
     i += 1 # coverage report is 1 indexed
     if inspector.linesHitFade[i]?
       intensity = Math.sqrt inspector.linesHitFade[i]
-      background: "hsla(205,50%,#{~~(intensity*15)}%,1.0)"
+      value = ~~(intensity*15)
+      background: "hsla(205,50%,#{value}%,1.0)"
+      color: if value > 100 then 'black' else 'white'
     else
       background: '#000'
+      color: 'white'
 
+  $scope.currentScriptIndex = 0
   $scope.focusOnScript = (i) ->
     $scope.currentScriptIndex = i
 
-  $scope.currentScriptIndex = 0
+  $scope.doSomething = ->
+    window.erasthenes(100000)
+
