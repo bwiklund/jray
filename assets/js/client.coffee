@@ -1,77 +1,12 @@
 angular.module 'jray', []
 
 
-.controller 'MainCtrl', ($scope,$timeout) ->
+.controller 'MainCtrl', ($scope,$timeout,testFn) ->
 
   instrumenter = new Instrumenter
 
-  fnStr = """
-var instrumentedFn = function () {
-  var foo = 0;
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if( Math.random() > 0.1 ){
-    return;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if( Math.random() > 0.5 ){
-    return;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo += 1;
-  }
-  if (Math.random() > 0.5) {
-    foo = 1;
-  }
-
-  if( foo >= 4 ){
-    doSomethingDumb();
-  } else {
-    doSomethingEquallyDumb();
-  }
-
-  doSomethingTotallyStupid();
-}
-
-function doSomethingDumb(){
-  var a = 10;
-  a += 5;
-  a -= 5;
-}
-
-function doSomethingEquallyDumb(){
-  var a = 10;
-  a += 5;
-  a -= 5;
-  a += 5;
-  a -= 5;
-}
-
-function doSomethingTotallyStupid(){
-  var a = 1337;
-}
-  """
-
   # fnStr = "var instrumentedFn = " + dumbFunction.toString()
-  changed = instrumenter.instrumentSync fnStr, 'filename.js'
+  changed = instrumenter.instrumentSync testFn, 'filename.js'
   eval changed
 
   console.log __cov_1
@@ -98,8 +33,8 @@ function doSomethingTotallyStupid(){
 
   update()
 
-  $scope.fnStr = fnStr
-  $scope.fnLines = fnStr.split /\n/
+  $scope.fnStr = testFn
+  $scope.fnLines = testFn.split /\n/
 
   $scope.lineStyle = (i) ->
     i += 1 # coverage report is 1 indexed
