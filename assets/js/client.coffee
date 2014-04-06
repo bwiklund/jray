@@ -1,47 +1,52 @@
 angular.module 'jray', []
 
 
-.controller 'MainCtrl', ($scope,$timeout,testFn) ->
 
-  instrumenter = new Instrumenter
+.factory 'Inspector', ->
+  class Inspector
+    constructor: (@fnStr) ->
+      @fnLines = @fnStr.split /\n/
 
-  # fnStr = "var instrumentedFn = " + dumbFunction.toString()
-  changed = instrumenter.instrumentSync testFn, 'filename.js'
-  eval changed
+      instrumenter = new Instrumenter
+      changed = instrumenter.instrumentSync fnStr, 'filename.js'
+      eval changed
+      @cov = __cov_1
 
-  console.log __cov_1
+      @linesHit = []
+      @linesHitFade = []
 
-  linesHit = null
-  linesHitFade = []
+      # defined in this closure until i think of a more clever way
+      # to handle scope in the instrumented script.
+      @update = ->
+        @linesHit = []
+        instrumentedFn()
+        for k,v of @cov.s
+          if v > 0
+            line = @cov.statementMap[k].start.line
+            @linesHit[ line ] = true
+            @linesHitFade[ line ] ?= 0
+            @linesHitFade[ line ] += v
+          @cov.s[k] = 0 # reset counter
+
+        for k,v of @linesHitFade
+          @linesHitFade[k] *= 0.95
+
+
+
+.controller 'MainCtrl', ($scope,$timeout,Inspector,testFn) ->
+
+  $scope.inspector = new Inspector testFn
 
   update = ->
-    linesHit = []
-    instrumentedFn()
+    $scope.inspector.update()
     $timeout update
-    cov = __cov_1
-    for k,v of cov.s
-      if v > 0
-        line = cov.statementMap[k].start.line
-        linesHit[ line ] = true
-        linesHitFade[ line ] ?= 0
-        linesHitFade[ line ] += v
-      cov.s[k] = 0 # reset counter
-    $scope.cov = cov
-
-    for k,v of linesHitFade
-      linesHitFade[k] *= 0.95
 
   update()
 
-  $scope.fnStr = testFn
-  $scope.fnLines = testFn.split /\n/
-
   $scope.lineStyle = (i) ->
     i += 1 # coverage report is 1 indexed
-    # if linesHit[i+1]
-      # background: '#d79c4f'
-    if linesHitFade[i]?
-      intensity = Math.sqrt linesHitFade[i]
+    if $scope.inspector.linesHitFade[i]?
+      intensity = Math.sqrt $scope.inspector.linesHitFade[i]
       background: "hsla(205,50%,#{~~(intensity*15)}%,1.0)"
     else
       background: '#000'
