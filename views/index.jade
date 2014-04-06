@@ -22,4 +22,6 @@ html
     //- div(ng-repeat="(k,v) in cov.f") {{k}} {{v}}
 
     //- h2 code
+    .thumbnails
+      pre(ng-repeat="line in fnLines track by $index",ng-style="lineStyle($index)") {{line}}
     pre(ng-repeat="line in fnLines track by $index",ng-style="lineStyle($index)") {{line}}

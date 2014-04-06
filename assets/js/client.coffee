@@ -20,7 +20,7 @@ var instrumentedFn = function () {
   if (Math.random() > 0.5) {
     foo += 1;
   }
-  if( Math.random() > 0.5 ){
+  if( Math.random() > 0.1 ){
     return;
   }
   if (Math.random() > 0.5) {
@@ -28,6 +28,9 @@ var instrumentedFn = function () {
   }
   if (Math.random() > 0.5) {
     foo += 1;
+  }
+  if( Math.random() > 0.5 ){
+    return;
   }
   if (Math.random() > 0.5) {
     foo += 1;
@@ -74,6 +77,7 @@ function doSomethingTotallyStupid(){
   console.log __cov_1
 
   linesHit = null
+  linesHitFade = []
 
   update = ->
     linesHit = []
@@ -84,8 +88,13 @@ function doSomethingTotallyStupid(){
       if v > 0
         line = cov.statementMap[k].start.line
         linesHit[ line ] = true
+        linesHitFade[ line ] ?= 0
+        linesHitFade[ line ] += v
       cov.s[k] = 0 # reset counter
     $scope.cov = cov
+
+    for k,v of linesHitFade
+      linesHitFade[k] *= 0.9
 
   update()
 
@@ -93,8 +102,10 @@ function doSomethingTotallyStupid(){
   $scope.fnLines = fnStr.split /\n/
 
   $scope.lineStyle = (i) ->
-    if linesHit[i+1]
-      background: '#d79c4f'
+    # if linesHit[i+1]
+      # background: '#d79c4f'
+    if !linesHitFade[i] then return {}
+    background: "hsla(360,50%,50%,#{linesHitFade[i+1]/5})"
 
 
 
