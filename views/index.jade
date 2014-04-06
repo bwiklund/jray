@@ -2,9 +2,17 @@ html
   head
     title fmjs
     //- so lazy
+    link(rel="stylesheet",href="build/style.css")
     script(src="vendor/esprima.js")
     script(src="vendor/escodegen.browser.js")
     script(src="vendor/instrumenter.js")
+    script(src="vendor/angular.min.js")
     script(src="build/all.min.js")
-  body
-    h1 hi
+  body(ng-app="jray",ng-controller="MainCtrl")
+    h1 jray
+    h2 statements
+    div(ng-repeat="(k,v) in cov.s") {{k}} {{v}}
+    h2 branches
+    div(ng-repeat="(k,v) in cov.b") {{k}} {{v}}
+    h2 functions
+    div(ng-repeat="(k,v) in cov.f") {{k}} {{v}}
