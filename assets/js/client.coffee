@@ -6,8 +6,15 @@ angular.module 'jray', []
   instrumenter = new Instrumenter
 
   dumbFunction = ->
-    for i in [0...100]
-      console.log "fart"
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
+    if Math.random() > 0.5 then foo = 5
 
   fnStr = "var instrumentedFn = " + dumbFunction.toString()
   changed = instrumenter.instrumentSync fnStr, 'filename.js'
