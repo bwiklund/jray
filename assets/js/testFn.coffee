@@ -16,7 +16,7 @@ function foobar() {
     return;
   }
 
-  if( foo >= 4 ){
+  if( Math.random() > 0.5 ){
     doSomethingDumb();
   } else {
     doSomethingEquallyDumb();
