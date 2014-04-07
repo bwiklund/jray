@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>jray</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <title>jray example</title>
+    <link rel="stylesheet" href="jray.css">
     <script src="vendor.min.js"></script>
-    <script src="all.min.js"></script>
+    <script src="jray.min.js"></script>
     <script src="templates.js"></script>
-</head>
 
-<body>
+    <!-- to load without requirejs, change your monitored scripts to type="text/jray" -->
+    <script type="text/jray" src="scripts/one.js"></script>
+    <script type="text/jray" src="scripts/two.js"></script>
+    <script type="text/jray" src="scripts/three.js"></script>
+    <script type="text/jray" src="scripts/four.js"></script>
+  </head>
+
+  <body>
     <header>
-        <h1>jray</h1>
-        <h2>watch your code running in real time</h2>
+      <h1>jray</h1>
+      <h2>watch your code running in real time</h2>
+      <script>
+
+      setInterval( function(){ window.foobar && window.foobar() }, 10 );
+
+      </script>
     </header>
-</body>
+  </body>
 
 </html>

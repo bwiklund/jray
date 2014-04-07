@@ -34,17 +34,16 @@ angular.module 'jray', []
 
 
 
-.controller 'MainCtrl', ($scope,$timeout,Inspector,testFn1,testFn2,testFn3,testFn4) ->
+.controller 'MainCtrl', ($scope,$timeout,Inspector,ScriptLoader) ->
+  console.info "jray:", "Loading scripts..."
 
-  $scope.inspectors = [
-    new Inspector "primes1.js", testFn3
-    new Inspector "primes2.js", testFn4
-    new Inspector "foo.js", testFn1
-    new Inspector "bar.js", testFn2
-  ]
+  $scope.inspectors = []
+
+  new ScriptLoader().loadAll().then (scripts) ->
+    for script in scripts
+      $scope.inspectors.push new Inspector script.name, script.source
 
   update = ->
-    window.foobar()
     inspector.update() for inspector in $scope.inspectors
     $timeout update, 50
 
@@ -68,6 +67,26 @@ angular.module 'jray', []
   $scope.doSomething = ->
     window.erasthenes(100000)
 
+
+
+.factory 'ScriptLoader', ($http,$q) ->
+  class ScriptLoader
+    constructor: ->
+
+    loadAll: ->
+      tags = document.querySelectorAll("script[type='text/jray']")
+      promises = for tag in tags
+        console.info "jray:", tag.src
+        $http.get tag.src
+
+      $q.all(promises).then (scripts) ->
+        for script in scripts
+          source: script.data
+          url: script.config.url
+          name: script.config.url.split('/')[-1..][0]
+
+
+.run (ScriptLoader) ->
 
 
 window.onload = ->

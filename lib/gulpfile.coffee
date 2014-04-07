@@ -26,7 +26,7 @@ gulp.task 'js', ->
   gulp
     .src  paths.scripts
     .pipe coffee() #.on('error',gutil.log)
-    .pipe concat 'all.min.js'
+    .pipe concat 'jray.min.js'
     .pipe ngmin()
     .pipe uglify()
     .pipe gulp.dest paths.dest
