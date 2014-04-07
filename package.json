@@ -19,13 +19,13 @@
   },
   "authors": ["Ben Wiklund <ben@daisyowl.com>"],
   "scripts": {
-    "test": "echo \"Yeah... about that.\" && exit 1"
+    "test": "echo \"Yeah... about that...\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/bwiklund/jray.git"
   },
-  "license": "BSD",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bwiklund/jray/issues"
   }
