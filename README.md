@@ -1,12 +1,12 @@
 # jray
 
-watch your code run in real time
+Watch your code run in real time
 
 ![jray example](https://raw.github.com/bwiklund/jray/master/examples/jray.gif)
 
-a work in progress. built with istanbul and angularjs.
+A work in progress. Built with istanbul and angularjs.
 
-to use without requirejs, include jray's js and css, and then change your script tags to `type="text/jray"`
+To use without requirejs, include jray's js and css, and then change your script tags to `type="text/jray"`
 
 ```html
 <link rel="stylesheet" href="jray.css">
@@ -20,16 +20,21 @@ to use without requirejs, include jray's js and css, and then change your script
 
 # Development
 
-bug tickets and pull requests are extremely welcome.
+TODO:
 
-to build:
+- requirejs plugin
+- slideout from the side/top
+- paginate script lines
+- move UI to iframe to avoid collisions with other versions of angular
+- support more ui modes (fade/add/etc)
+- other color schemes
+- node support???
+
+Bug tickets and pull requests are extremely welcome.
+
+To build:
 
 ```
 npm install
 gulp dev
 ```
-
-# TODO:
-
-- requirejs plugin
-- move UI to iframe to avoid collisions with other versions of angular
