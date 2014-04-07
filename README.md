@@ -4,9 +4,25 @@ watch your code run in real time
 
 ![jray example](https://raw.github.com/bwiklund/jray/master/examples/jray.gif)
 
-a work in progress. built on top of istanbul.
+a work in progress. built with istanbul and angularjs.
 
-to test it out:
+to use without requirejs, include jray's js and css, and then change your script tags to `type="text/jray"`
+
+```html
+<link rel="stylesheet" href="jray.css">
+<script src="jray.min.js"></script>
+
+<script type="text/jray" src="scripts/one.js"></script>
+<script type="text/jray" src="scripts/two.js"></script>
+<script type="text/jray" src="scripts/three.js"></script>
+<script type="text/jray" src="scripts/four.js"></script>
+```
+
+# Development
+
+bug tickets and pull requests are extremely welcome.
+
+to build:
 
 ```
 npm install
@@ -15,7 +31,5 @@ gulp dev
 
 # TODO:
 
-- make demo a completely static build (currently uses express for views)
-- api for script loader
 - requirejs plugin
-- bundling of css/js/templates into a single file for convenience
+- move UI to iframe to avoid collisions with other versions of angular

@@ -14,21 +14,20 @@
     "gulp-uglify": "~0.2.1",
     "gulp-connect": "~2.0.4",
     "gulp-jade": "~0.4.2",
-    "streamqueue": "0.0.6"
+    "streamqueue": "0.0.6",
+    "gulp-angular-templatecache": "~1.1.1"
   },
+  "author": "Ben Wiklund <ben@daisyowl.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Yeah... about that.\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bwiklund/fmjs.git"
+    "url": "git://github.com/bwiklund/jray.git"
   },
   "author": "",
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/bwiklund/fmjs/issues"
-  },
-  "devDependencies": {
-    "gulp-angular-templatecache": "~1.1.1"
+    "url": "https://github.com/bwiklund/jray/issues"
   }
 }

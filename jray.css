@@ -1,0 +1,6 @@
+/*
+ jray v0.0.0
+ (c) 2014 bwiklund
+ License: MIT
+*/
+*{margin:0;padding:0}body{color:#fff;background:#000;font-family:'Open Sans',sans-serif;margin:30px}ul{list-style:none}pre{background:#2a2a2a;white-space:pre-wrap}header{margin:20px 0;}header h2{font-weight:normal;font-size:inherit}.inspector{border-left:#035 2px solid;border-top:#035 8px solid;padding:10px}a{color:#fff;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.thumbnails{margin:10px 0;}.thumbnails .script-name{margin-bottom:5px;font-size:12px}.thumbnails pre{font-size:3px}.thumbnails .thumbnail{cursor:pointer;border-left:#035 2px solid;border-top:#035 8px solid;padding:5px;margin:10px 10px 10px 0;vertical-align:top;width:100px;display:inline-block}.thumbnails .thumbnail.current{border-color:#fff}
