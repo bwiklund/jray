@@ -6,18 +6,20 @@ stylus  = require 'gulp-stylus'
 ngmin   = require 'gulp-ngmin'
 connect = require 'gulp-connect'
 jade    = require 'gulp-jade'
+templateCache = require 'gulp-angular-templatecache'
 
 paths =
-  dest:    './build'
-  scripts: ['./assets/js/app.coffee','./assets/js/**/*.coffee']
-  sheets:  ['./assets/css/**/*.styl']
-  views:   ['./assets/views/**/*.jade']
-  vendor:  ['./vendor/**/*.js']
+  dest:      './build'
+  scripts:   ['./assets/js/app.coffee','./assets/js/**/*.coffee']
+  sheets:    ['./assets/css/**/*.styl']
+  templates: ['./assets/views/jray.jade']
+  vendor:    ['./vendor/**/*.js']
 
-gulp.task 'jade', ->
+gulp.task 'templates', ->
   gulp
-    .src  paths.views
+    .src  paths.templates
     .pipe jade()
+    .pipe templateCache module: 'jray'
     .pipe gulp.dest paths.dest
 
 gulp.task 'js', ->
@@ -48,9 +50,9 @@ gulp.task 'watch', ->
   gulp.watch paths.views, ['jade']
 
 gulp.task 'connect', -> connect.server
-  root: ['build']
+  root: ['build','examples']
   port: 8765
 
 gulp.task 'dev', ['default','connect','watch']
 
-gulp.task 'default', ['js','vendor','css','jade']
+gulp.task 'default', ['js','vendor','templates','css']

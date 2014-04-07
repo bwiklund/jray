@@ -1,0 +1,9 @@
+div(ng-controller="MainCtrl")
+
+  .thumbnails
+    .thumbnail(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
+      .script-name {{inspector.scriptName}}
+      pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}&nbsp;
+
+  .inspector
+    pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}&nbsp;

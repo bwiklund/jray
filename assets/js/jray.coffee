@@ -68,3 +68,9 @@ angular.module 'jray', []
   $scope.doSomething = ->
     window.erasthenes(100000)
 
+
+
+window.onload = ->
+  el = angular.element "<div ng-include src=\"'jray.html'\"></div>"
+  document.body.appendChild el[0]
+  angular.bootstrap el, ['jray']

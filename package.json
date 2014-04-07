@@ -26,5 +26,8 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/bwiklund/fmjs/issues"
+  },
+  "devDependencies": {
+    "gulp-angular-templatecache": "~1.1.1"
   }
 }
