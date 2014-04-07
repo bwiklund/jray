@@ -1,6 +1,6 @@
 # jray
 
-Watch your code run in real time
+Watch your javascript run in real time
 
 ![jray example](https://raw.github.com/bwiklund/jray/master/examples/jray.gif)
 
