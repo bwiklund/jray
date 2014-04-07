@@ -17,7 +17,7 @@
     "streamqueue": "0.0.6",
     "gulp-angular-templatecache": "~1.1.1"
   },
-  "author": "Ben Wiklund <ben@daisyowl.com>",
+  "authors": ["Ben Wiklund <ben@daisyowl.com>"],
   "scripts": {
     "test": "echo \"Yeah... about that.\" && exit 1"
   },
@@ -25,7 +25,6 @@
     "type": "git",
     "url": "git://github.com/bwiklund/jray.git"
   },
-  "author": "",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/bwiklund/jray/issues"
