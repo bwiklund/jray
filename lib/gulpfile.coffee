@@ -50,8 +50,9 @@ gulp.task 'css', ->
 
 
 gulp.task 'watch', ->
-  gulp.watch paths.scripts, ['bundle']
-  gulp.watch paths.sheets, ['css']
+  gulp.watch paths.scripts,   ['bundle']
+  gulp.watch paths.templates, ['bundle']
+  gulp.watch paths.sheets,    ['css']
 
 
 gulp.task 'connect', -> connect.server
