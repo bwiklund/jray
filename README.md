@@ -2,6 +2,8 @@
 
 Watch your javascript run in real time
 
+[Live demo ->](https://rawgit.com/bwiklund/jray/master/examples/index.html)
+
 ![jray example](https://raw.github.com/bwiklund/jray/master/examples/jray.gif)
 
 A work in progress. Built with istanbul and angularjs.
