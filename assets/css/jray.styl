@@ -1,62 +1,65 @@
-*
-  margin 0
-  padding 0
-
-body
+.jray
+  position fixed
   color white
   background black
   font-family 'Open Sans', sans-serif
-  margin 30px
+  padding 20px
+  top 0
+  right 0
 
-ul
-  list-style none
+  *
+    margin 0
+    padding 0
 
-pre
-  background #2a2a2a
-  white-space pre-wrap
-  // transition background linear 0.1s
-  // &:nth-child(2n)
-  //   background #282828
-
-header
-  margin 20px 0
-  h2
-    font-weight normal
-    font-size inherit
-
-.inspector
-  border-left #035 2px solid
-  border-top #035 8px solid
-  padding 10px
-
-a
-  color white
-  cursor pointer
-  -webkit-user-select none
-  -moz-user-select none
-  -ms-user-select none
-  user-select none
-
-.thumbnails
-  margin 10px 0
-
-  .script-name
-    margin-bottom 5px
-    font-size 12px
+  ul
+    list-style none
 
   pre
-    font-size 3px
+    background #2a2a2a
+    white-space pre-wrap
+    // transition background linear 0.1s
+    // &:nth-child(2n)
+    //   background #282828
 
-  .thumbnail
+  header
+    margin 20px 0
+    h2
+      font-weight normal
+      font-size inherit
 
-    &.current
-      border-color white
 
-    cursor pointer
+  .inspector
     border-left #035 2px solid
     border-top #035 8px solid
-    padding 5px
-    margin 10px 10px 10px 0
-    vertical-align top
-    width 100px
-    display inline-block
+    padding 10px
+
+  a
+    color white
+    cursor pointer
+    -webkit-user-select none
+    -moz-user-select none
+    -ms-user-select none
+    user-select none
+
+  .thumbnails
+    margin 0 0 10px 0
+
+    .script-name
+      margin-bottom 5px
+      font-size 12px
+
+    pre
+      font-size 3px
+
+    .thumbnail
+      cursor pointer
+      border-left #035 2px solid
+      border-top #035 8px solid
+      padding 5px
+      margin 0 10px 0 0
+      vertical-align top
+      width 100px
+      display inline-block
+
+      &.current
+        border-color white
