@@ -5,4 +5,5 @@ function naivePrimes( num ){
       primes.push( i );
     }
   }
+  return primes;
 }
