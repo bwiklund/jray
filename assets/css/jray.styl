@@ -24,24 +24,26 @@
       font-size inherit
 
   .handle
+    font-size 12px
     position absolute
     z-index -10
     line-height 1
+    color: #555;
     .inner
       position absolute
       right 0
       top 5px
       background #f4f2f0
-      padding 10px 8px 7px 10px
+      padding 7px 8px 7px 10px
       border-radius 5px 0 0 5px
       border-style solid
       border-color #e4e2e0
-      border-width 2px
+      border-width 1px 0 1px 4px
       cursor pointer
 
   .panel
     background #f4f2f0
-    border-left 2px solid #e4e2e0
+    border-left 4px solid #e4e2e0
     z-index 1
     position absolute
     height 100%
@@ -56,6 +58,7 @@
   //   box-shadow 0 0 20px rgba(0,0,0,0.2)
 
   .inspector
+    box-shadow 0 0 10px rgba(0,0,0,0.05)
     background white
     padding 5px
     margin 10px
@@ -77,11 +80,12 @@
       font-size 3px
 
     .inspector
+      border-top 5px solid white
       margin 10px 0 0 10px
       cursor pointer
       vertical-align top
       width 50px
       display inline-block
 
-      &.current
-        border-color white
+      &.current, &:hover
+        border-top 5px solid #3399ff

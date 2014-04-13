@@ -3,7 +3,7 @@
 
   .panel(ng-class="{expanded: expanded}")
 
-    .handle: .inner(ng-click="toggleExpanded()") JRAY
+    .handle: .inner(ng-click="toggleExpanded()") jray
 
     .thumbnails
       .inspector(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
