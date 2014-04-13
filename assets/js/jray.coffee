@@ -37,6 +37,8 @@ angular.module 'jray', []
 .controller 'MainCtrl', ($scope,$timeout,Inspector,ScriptLoader) ->
   console.info "jray:", "Loading scripts..."
 
+  $scope.expanded = true
+
   $scope.inspectors = []
 
   new ScriptLoader().loadAll().then (scripts) ->
@@ -54,6 +56,7 @@ angular.module 'jray', []
     if inspector.linesHitFade[i]?
       intensity = Math.sqrt inspector.linesHitFade[i]
       value = 100 - ~~(intensity*15)
+      value = Math.max( 50, value );
       background: "hsla(10,#{value}%,#{value}%,1.0)"
       # color: if value > 100 then 'white' else 'black'
     else
@@ -63,9 +66,6 @@ angular.module 'jray', []
   $scope.currentScriptIndex = 0
   $scope.focusOnScript = (i) ->
     $scope.currentScriptIndex = i
-
-  $scope.doSomething = ->
-    window.erasthenes(100000)
 
   $scope.toggleExpanded = ->
     $scope.expanded = !$scope.expanded

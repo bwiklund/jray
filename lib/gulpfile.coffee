@@ -27,7 +27,7 @@ gulp.task 'bundle', ->
 
   js = gulp
     .src  paths.scripts
-    .pipe coffee() #.on('error',gutil.log)
+    .pipe coffee()
     .pipe concat 'jray.min.js'
     .pipe ngmin()
     .pipe uglify()

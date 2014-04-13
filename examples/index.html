@@ -5,7 +5,7 @@
     <title>jray example</title>
     <link rel="stylesheet" href="example.css">
     <link rel="stylesheet" href="jray.css">
-    <script src="jray.min.js"></script>
+    <script src="jray.min.js" auto-open></script>
 
     <!-- to load without requirejs, change your monitored scripts to type="text/jray" -->
     <script type="text/jray" src="scripts/one.js"></script>
@@ -17,10 +17,14 @@
   <body>
     <header>
       <h1>jray</h1>
-      <h2>watch your javascript running in real time</h2>
+      <h2>Watch your javascript running in real time</h2>
+      <p>Add jray to your page (<a>how-to</a>) and get realtime code coverage, in an easy to real and navigate panel.</p>
+      <p>On this page, we're calculating some primes.</p>
+      <p id="prime">Here, have a prime: <span>1337</span></p>
+      <p>Watch the sidebar to see the code in action.</p>
       <script>
 
-      setInterval( function(){ window.foobar && window.foobar() }, 10 );
+      setInterval( function(){ window.foobar && window.foobar() }, 100 );
 
       </script>
     </header>
