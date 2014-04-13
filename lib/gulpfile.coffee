@@ -23,7 +23,7 @@ gulp.task 'bundle', ->
   vendor = gulp
     .src  paths.vendor
     .pipe concat 'vendor.min.js'
-    # .pipe uglify()
+    .pipe uglify()
 
   js = gulp
     .src  paths.scripts
