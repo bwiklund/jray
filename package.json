@@ -1,6 +1,6 @@
 {
   "name": "jray",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "watch your javascript running in real time",
   "main": "index.js",
   "dependencies": {
