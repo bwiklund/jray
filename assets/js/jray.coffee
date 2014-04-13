@@ -37,13 +37,13 @@ angular.module 'jray', []
 .controller 'MainCtrl', ($scope,$timeout,$log,Inspector,ScriptLoader) ->
   $log.info "jray:", "Loading scripts..."
 
-  $timeout ( -> $scope.expanded = true ), 200
-
   $scope.inspectors = []
 
   new ScriptLoader().loadAll().then (scripts) ->
     for script in scripts
       $scope.inspectors.push new Inspector script.name, script.source
+
+    $timeout ( -> $scope.expanded = true ), 200
 
   update = ->
     inspector.update() for inspector in $scope.inspectors
