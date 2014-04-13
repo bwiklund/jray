@@ -6,7 +6,7 @@ Watch your javascript run in real time
 
 ![demo gif](https://raw.github.com/bwiklund/jray/master/examples/jray.gif)
 
-A work in progress. Built with istanbul and angularjs.
+A work in progress. Built with istanbul and angularjs. And other stuff.
 
 To use without requirejs, include jray's js and css, and then change your script tags to `type="text/jray"`
 
