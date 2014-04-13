@@ -16,6 +16,7 @@
   pre
     background #2a2a2a
     white-space pre-wrap
+    overflow hidden
 
   header
     margin 10px
@@ -28,7 +29,7 @@
     position absolute
     z-index -10
     line-height 1
-    color: #555;
+    color: #aaa;
     .inner
       position absolute
       right 0
@@ -41,27 +42,41 @@
       border-width 1px 0 1px 4px
       cursor pointer
 
+      &:hover
+        color black
+        
+
   .panel
     background #f4f2f0
     border-left 4px solid #e4e2e0
     z-index 1
     position absolute
     height 100%
-    width 400px
+    width 500px
 
     left -10px
     transition 0.2s ease-in-out left
     &.expanded
-      left -400px
-
-  // .panel, .handle .inner
-  //   box-shadow 0 0 20px rgba(0,0,0,0.2)
+      left -500px
 
   .inspector
     box-shadow 0 0 10px rgba(0,0,0,0.05)
     background white
     padding 5px
     margin 10px
+
+    .script-name
+      margin-bottom 5px
+      font-size 12px
+      overflow hidden
+      text-overflow ellipsis
+      color #888
+
+    &.large .script-name
+      background #f7f7f7
+      margin -5px -5px 5px
+      padding 5px
+      color black
 
   a
     cursor pointer
@@ -72,15 +87,11 @@
 
   .thumbnails
 
-    .script-name
-      margin-bottom 5px
-      font-size 12px
-
     pre
       font-size 3px
 
     .inspector
-      border-top 5px solid white
+      border-top 5px solid #f7f7f7
       margin 10px 0 0 10px
       cursor pointer
       vertical-align top

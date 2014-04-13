@@ -5,26 +5,35 @@
     <title>jray example</title>
     <link rel="stylesheet" href="example.css">
     <link rel="stylesheet" href="jray.css">
-    <script src="jray.min.js" auto-open></script>
+    <script src="jray.min.js"></script>
 
     <!-- to load without requirejs, change your monitored scripts to type="text/jray" -->
-    <script type="text/jray" src="scripts/one.js"></script>
-    <script type="text/jray" src="scripts/two.js"></script>
-    <script type="text/jray" src="scripts/three.js"></script>
-    <script type="text/jray" src="scripts/four.js"></script>
+    <script type="text/jray" src="scripts/erasthenes.js"></script>
+    <script type="text/jray" src="scripts/naive.js"></script>
+    <script type="text/jray" src="scripts/app.js"></script>
   </head>
 
   <body>
     <header>
       <h1>jray</h1>
       <h2>Watch your javascript running in real time</h2>
-      <p>Add jray to your page (<a>how-to</a>) and get realtime code coverage, in an easy to real and navigate panel.</p>
+      <p><a href="https://github.com/bwiklund/jray">Add jray to your page</a> and get realtime code coverage, in an easy to real and navigate panel. </p>
       <p>On this page, we're calculating some primes.</p>
-      <p id="prime">Here, have a prime: <span>1337</span></p>
+      <div id="prime">
+        <p><b>Pointless Prime Generator</b></p>
+        <p><label><input type="checkbox" id="toggle" checked> auto generate</label></p>
+        <p><a onclick="foobar()">Make another prime</a></p>
+        <p>Here, have a prime: <span>1337</span></p>
+      </div>
       <p>Watch the sidebar to see the code in action.</p>
+      <p><a href="https://github.com/bwiklund/jray">On github</a></p>
       <script>
 
-      setInterval( function(){ window.foobar && window.foobar() }, 100 );
+      setInterval( function(){
+        if( document.querySelector("#toggle").checked ){
+          window.foobar && window.foobar() 
+        }
+      }, 100 );
 
       </script>
     </header>

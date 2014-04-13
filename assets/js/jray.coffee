@@ -34,10 +34,10 @@ angular.module 'jray', []
 
 
 
-.controller 'MainCtrl', ($scope,$timeout,Inspector,ScriptLoader) ->
-  console.info "jray:", "Loading scripts..."
+.controller 'MainCtrl', ($scope,$timeout,$log,Inspector,ScriptLoader) ->
+  $log.info "jray:", "Loading scripts..."
 
-  $scope.expanded = true
+  $timeout ( -> $scope.expanded = true ), 200
 
   $scope.inspectors = []
 

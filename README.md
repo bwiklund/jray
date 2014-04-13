@@ -9,6 +9,7 @@ A work in progress. Built with istanbul and angularjs.
 To use without requirejs, include jray's js and css, and then change your script tags to `type="text/jray"`
 
 ```html
+...
 <link rel="stylesheet" href="jray.css">
 <script src="jray.min.js"></script>
 
@@ -16,6 +17,7 @@ To use without requirejs, include jray's js and css, and then change your script
 <script type="text/jray" src="scripts/two.js"></script>
 <script type="text/jray" src="scripts/three.js"></script>
 <script type="text/jray" src="scripts/four.js"></script>
+...
 ```
 
 # Development
