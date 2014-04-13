@@ -1,3 +1,6 @@
+// lets calculate some small
+// primes for no reason!
+
 function foobar() {
   var methods = [ erasthenes, naivePrimes ];
   var method = methods[ ~~(Math.random() * methods.length) ];
