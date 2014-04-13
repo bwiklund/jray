@@ -1,14 +1,10 @@
 .jray
   position fixed
   color black
-  background #e4e2e0
-  font-family 'Open Sans', sans-serif
+  font-family sans-serif
   top 0
   right 0
   bottom 0
-  width 400px
-  box-shadow 0 0 20px rgba(0,0,0,0.2)
-  border-left 2px solid #ccc
 
   *
     margin 0
@@ -27,6 +23,37 @@
       font-weight normal
       font-size inherit
 
+  .handle
+    position absolute
+    z-index -10
+    line-height 1
+    .inner
+      position absolute
+      right 0
+      top 5px
+      background #f4f2f0
+      padding 10px 8px 7px 10px
+      border-radius 5px 0 0 5px
+      border-style solid
+      border-color #e4e2e0
+      border-width 2px
+      cursor pointer
+
+  .panel
+    background #f4f2f0
+    border-left 2px solid #e4e2e0
+    z-index 1
+    position absolute
+    height 100%
+    width 400px
+
+    left -10px
+    transition 0.2s ease-in-out left
+    &.expanded
+      left -400px
+
+  // .panel, .handle .inner
+  //   box-shadow 0 0 20px rgba(0,0,0,0.2)
 
   .inspector
     background white
@@ -49,11 +76,9 @@
     pre
       font-size 3px
 
-    .thumbnail
+    .inspector
       margin 10px 0 0 10px
-      background white
       cursor pointer
-      padding 5px
       vertical-align top
       width 50px
       display inline-block

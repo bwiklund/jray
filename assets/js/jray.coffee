@@ -67,6 +67,9 @@ angular.module 'jray', []
   $scope.doSomething = ->
     window.erasthenes(100000)
 
+  $scope.toggleExpanded = ->
+    $scope.expanded = !$scope.expanded
+
 
 
 .factory 'ScriptLoader', ($http,$q) ->

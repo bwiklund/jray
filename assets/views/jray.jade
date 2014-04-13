@@ -1,10 +1,15 @@
 .jray(ng-controller="MainCtrl")
 
-  .thumbnails
-    .thumbnail(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
-      .script-name {{inspector.scriptName}}
-      pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}&nbsp;
 
-  .inspector
-    .script-name {{inspector.scriptName}}
-    pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}&nbsp;
+  .panel(ng-class="{expanded: expanded}")
+
+    .handle: .inner(ng-click="toggleExpanded()") JRAY
+
+    .thumbnails
+      .inspector(ng-repeat="inspector in inspectors",ng-click="focusOnScript($index)",ng-class="{current: $index == currentScriptIndex}")
+        .script-name {{inspector.scriptName}}
+        pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}&nbsp;
+
+    .inspector
+      .script-name {{inspector.scriptName}}
+      pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}&nbsp;
