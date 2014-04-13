@@ -6,4 +6,5 @@
       pre(ng-repeat="line in inspector.fnLines track by $index",ng-style="lineStyle(inspector,$index)") {{line}}&nbsp;
 
   .inspector
+    .script-name {{inspector.scriptName}}
     pre(ng-repeat="line in inspectors[ currentScriptIndex ].fnLines track by $index",ng-style="lineStyle(inspectors[ currentScriptIndex ],$index)") {{line}}&nbsp;

@@ -53,12 +53,12 @@ angular.module 'jray', []
     i += 1 # coverage report is 1 indexed
     if inspector.linesHitFade[i]?
       intensity = Math.sqrt inspector.linesHitFade[i]
-      value = ~~(intensity*15)
-      background: "hsla(205,50%,#{value}%,1.0)"
-      color: if value > 100 then 'black' else 'white'
+      value = 100 - ~~(intensity*15)
+      background: "hsla(10,#{value}%,#{value}%,1.0)"
+      # color: if value > 100 then 'white' else 'black'
     else
-      background: '#000'
-      color: 'white'
+      background: 'white'
+      # color: 'black'
 
   $scope.currentScriptIndex = 0
   $scope.focusOnScript = (i) ->

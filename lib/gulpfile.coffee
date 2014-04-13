@@ -23,7 +23,7 @@ gulp.task 'bundle', ->
   vendor = gulp
     .src  paths.vendor
     .pipe concat 'vendor.min.js'
-    .pipe uglify()
+    # .pipe uglify()
 
   js = gulp
     .src  paths.scripts
@@ -50,9 +50,8 @@ gulp.task 'css', ->
 
 
 gulp.task 'watch', ->
-  gulp.watch paths.scripts, ['js']
+  gulp.watch paths.scripts, ['bundle']
   gulp.watch paths.sheets, ['css']
-  gulp.watch paths.views, ['jade']
 
 
 gulp.task 'connect', -> connect.server

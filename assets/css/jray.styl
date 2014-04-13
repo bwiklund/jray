@@ -1,11 +1,14 @@
 .jray
   position fixed
-  color white
-  background black
+  color black
+  background #e4e2e0
   font-family 'Open Sans', sans-serif
-  padding 20px
   top 0
   right 0
+  bottom 0
+  width 400px
+  box-shadow 0 0 20px rgba(0,0,0,0.2)
+  border-left 2px solid #ccc
 
   *
     margin 0
@@ -17,24 +20,20 @@
   pre
     background #2a2a2a
     white-space pre-wrap
-    // transition background linear 0.1s
-    // &:nth-child(2n)
-    //   background #282828
 
   header
-    margin 20px 0
+    margin 10px
     h2
       font-weight normal
       font-size inherit
 
 
   .inspector
-    border-left #035 2px solid
-    border-top #035 8px solid
-    padding 10px
+    background white
+    padding 5px
+    margin 10px
 
   a
-    color white
     cursor pointer
     -webkit-user-select none
     -moz-user-select none
@@ -42,7 +41,6 @@
     user-select none
 
   .thumbnails
-    margin 0 0 10px 0
 
     .script-name
       margin-bottom 5px
@@ -52,13 +50,12 @@
       font-size 3px
 
     .thumbnail
+      margin 10px 0 0 10px
+      background white
       cursor pointer
-      border-left #035 2px solid
-      border-top #035 8px solid
       padding 5px
-      margin 0 10px 0 0
       vertical-align top
-      width 100px
+      width 50px
       display inline-block
 
       &.current
